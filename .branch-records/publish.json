@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task_id": "publish-learning-guide-20261119",
+  "user_request": {
+    "id": "request-20261119-push",
+    "date": "2026-11-19",
+    "request": "将当前已交付的 HTML 学习手册推送到用户提供的 GitHub 仓库。",
+    "remote": "https://github.com/medicagooo/ai-agent-infra-learning.git"
+  },
+  "artifact": {
+    "path": "AI-Agent-Infra-学习手册.html",
+    "provenance": "本次对话先前交付的 outputs/AI-Agent-Infra-学习手册.html",
+    "sha256": "2a6dd61858e370b335f16ef5b14efb27db422dac0071ae90f73e3386249a7226"
+  },
+  "events": [
+    {
+      "id": "declare-20261119-init-main",
+      "date": "2026-11-19",
+      "user_request": "request-20261119-push",
+      "operation": "git init --initial-branch=main",
+      "target": "C:/Users/medic/Documents/Codex/2026-11-16/ji-y/work/ai-agent-infra-learning",
+      "expected_start": "本地目标目录包含发布记录，尚无 Git 仓库。远端经 ls-remote 检查为空。",
+      "reason": "为首次上传建立独立的本地仓库。",
+      "intended_result": "main 成为初始分支。"
+    },
+    {
+      "id": "declare-20261119-push-main",
+      "date": "2026-11-19",
+      "user_request": "request-20261119-push",
+      "operation": "git push --set-upstream origin HEAD:refs/heads/main",
+      "target": "https://github.com/medicagooo/ai-agent-infra-learning.git#refs/heads/main",
+      "source": "HEAD after committing the HTML and these declarations",
+      "expected_start": "远端 refs/heads/main 尚未存在，本地提交包含 HTML、BRANCHES.md 和发布记录。",
+      "reason": "执行用户明确授权的首次推送。",
+      "intended_result": "远端 main 与本地提交一致，HTML 文件哈希与已交付文件一致。"
+    }
+  ],
+  "pending": ["declare-20261119-init-main", "declare-20261119-push-main"]
+}
